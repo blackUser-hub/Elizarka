@@ -85,15 +85,15 @@ main {
 /* Calendar Section */
 .calendar-section {
   padding: 24px;
-  min-height: 800px;
+  min-height: 600px;
   width: 100%;
   text-align: center;
   background-color: #f9fafc;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.2);
   /* Заголвок */
-  h3 {
-    font-size: 30px;
+  h1 {
+    font-size: 40px;
     margin-bottom: 20px;
   }
 }
@@ -101,7 +101,7 @@ main {
 .calendar {
   width: 100%;
   height: 700px;
-  border-spacing: 5px;
+  border-spacing: 0.8rem;
 }
 /* Header Calendar */
 .calendarHeaderBox {
@@ -111,15 +111,20 @@ main {
   align-items: center;
   width: 100%;
   height: 50px;
-  font-size: 30px;
+  font-size: 2.5rem;
   span {
     font-size: 2.7rem;
+  }
+  span::first-letter {
+    text-transform: uppercase;
   }
 }
 /* Calendar Header Button */
 .calendarBtn {
+  user-select: none;
   display: inline-block;
   cursor: pointer;
+  font-weight: 600;
 }
 .backYear, .nextYear {
   margin: 0 30px;
@@ -127,8 +132,8 @@ main {
 /* Week Days */
 thead {
   height: 50px;
-  font-size: 35px;
-  line-height: 35px;
+  font-size: 2.6rem;
+  line-height: 2.6rem;
 }
 /* Table Line  */
 tr {
@@ -136,9 +141,10 @@ tr {
 }
 /* Table Line Items */
 td {
-  font-size: 30px;
+  font-size: 2rem;
   color: black;
   background-color: #5c6bc0;
+  border-radius: 20px;
 }
 /* Days Other Month */
 .otherMonth {
