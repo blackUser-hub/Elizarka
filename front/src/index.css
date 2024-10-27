@@ -1,0 +1,260 @@
+/* styles.css */
+
+/* Общие стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  color: #333;
+}
+
+/* Header */
+header {
+  /* position: fixed;
+  width: 100%; */
+  background-color: #2e3a8c;
+  color: #fff;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #b0c4de;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 2rem 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Upload Section */
+.upload-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.upload-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+.upload-btn:hover {
+  background-color: #303f9f;
+}
+
+/* Calendar Section */
+.calendar-section {
+  padding: 24px;
+  min-height: 800px;
+  width: 100%;
+  text-align: center;
+  background-color: #f9fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Заголвок */
+  h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+/* Calendar table */
+.calendar {
+  width: 100%;
+  height: 700px;
+  border-spacing: 5px;
+}
+/* Header Calendar */
+.calendarHeaderBox {
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  span {
+    font-size: 2.7rem;
+  }
+}
+/* Calendar Header Button */
+.calendarBtn {
+  display: inline-block;
+  cursor: pointer;
+}
+.backYear, .nextYear {
+  margin: 0 30px;
+}
+/* Week Days */
+thead {
+  height: 50px;
+  font-size: 35px;
+  line-height: 35px;
+}
+/* Table Line  */
+tr {
+  height: 123px;
+}
+/* Table Line Items */
+td {
+  font-size: 30px;
+  color: black;
+  background-color: #5c6bc0;
+}
+/* Days Other Month */
+.otherMonth {
+  background-color: #888;
+}
+
+/* Notes History */
+.notes-history {
+  background-color: #f9fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.notes-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.note-card:hover {
+  transform: scale(1.05);
+}
+
+.open-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #5c6bc0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.open-btn:hover {
+  background-color: #3949ab;
+}
+
+/* Video and Notes Section */
+.video-notes-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.video-container video {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notes-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  gap: 1rem;
+}
+
+.notes-panel textarea {
+  width: 100%;
+  height: 200px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.add-timestamp {
+  padding: 0.75rem;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-timestamp:hover {
+  background-color: #303f9f;
+}
+
+/* About Section */
+.about-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.about-section h2 {
+  margin-bottom: 1rem;
+  color: #2e3a8c;
+}
+
+/* Footer */
+footer {
+  background-color: #2e3a8c;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
