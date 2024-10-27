@@ -9,12 +9,13 @@ WORKDIR /app
 # Копируем package.json и устанавливаем зависимости
 COPY package.json ./
 RUN npm install
+RUN npm i
 
 # Копируем все остальные файлы
 COPY . .
 
 # Сборка приложения
-RUN npm run build
+RUN npm run start
 
 # Сервируем статические файлы
 FROM nginx:alpine
