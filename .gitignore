@@ -2,3 +2,4 @@
 venv/
 
 .vscode
+/front/node_modules/

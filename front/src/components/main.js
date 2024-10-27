@@ -15,7 +15,7 @@ const Main = () => {
         <Upload />
 
         {/* Notes History */}
-        <NotesHistory />
+        {/* <NotesHistory /> */}
 
         {/* Video and Notes Section */}
         <VideoNotes />

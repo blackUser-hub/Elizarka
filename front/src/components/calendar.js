@@ -43,7 +43,7 @@ const CalendarSection = () => {
     const [WeeksInMonth, setWeeksInMonth] = useState(MonthWeeks(year, month))
 
     return (<div className="calendar-section">
-        <h3>Календарь с заметками</h3>
+        <h1>Календарь с заметками</h1>
         <table className="calendar">
             <CalendarYear stateYear={year} chageYear={(d) => {
             setWeeksInMonth(MonthWeeks(year+d, month))
