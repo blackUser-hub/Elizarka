@@ -1,0 +1,9 @@
+pandas
+pyannote.audio
+whisperx
+pydub
+torch
+docx
+pydantic
+uvicorn
+sqlalchemy
