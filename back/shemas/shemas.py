@@ -12,14 +12,15 @@ metadata_obj = MetaData(schema='ai')
 
 
 users_table  = Table(
-     'Users',
+    'Users',
      metadata_obj,
     Column('id', String, primary_key=True),
-    Column('birth_date', String),
-    Column('fullname', String),
-    Column('tematics', ARRAY(String)),
-    Column('region', String),
-    Column('password', String),
-    Column('liked_videos', ARRAY(String)),
-    Column('disled_videos', ARRAY(String))
+    Column('inviter', String),
+    Column('invite_count', Integer),
+    Column('mail', String),
+    Column('phone', String),
+    Column('org_code', String),
+    Column('org name', String),
+    Column('age', Integer),
+    Column('password', String)
 )

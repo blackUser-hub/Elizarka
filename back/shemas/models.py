@@ -15,11 +15,13 @@ users_table  = Table(
      'Users',
      metadata_obj,
     Column('id', String, primary_key=True),
+
+    Column('inviter', String),
+    Column('invite_count', Integer),
     Column('mail', String),
-    Column('password', String),
-    Column('', String),
-    Column('region', String),
-    Column('password', String),
-    Column('liked_videos', ARRAY(String)),
-    Column('disled_videos', ARRAY(String))
+    Column('phone', String),
+    Column('org_code', String),
+    Column('org name', String),
+    Column('age', Integer),
+    Column('password', String)
 )

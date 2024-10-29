@@ -12,9 +12,8 @@ from datetime import timedelta
 import subprocess
 import pandas as pd
 from datetime import timedelta
-from docx import *
+from docx import Document
 import config
-
 
 # async def to_wav(audio_path):
 #     filename = Path(audio_path)

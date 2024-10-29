@@ -7,3 +7,4 @@ docx
 pydantic
 uvicorn
 sqlalchemy
+fastapi

@@ -10,7 +10,12 @@ class UserOrm(Base):
     __tablename__ = 'Users'
 
     id: Mapped[str] = mapped_column(primary_key=True)
-    tematics: Mapped[list] = mapped_column(ARRAY(String), nullable=True)  # Используем ARRAY для хранения списка строк
-    liked_videos: Mapped[list] = mapped_column(ARRAY(String), nullable=True)
-    disled_videos: Mapped[list] = mapped_column(ARRAY(String), nullable=True)
-    watched_videos: Mapped[list] = mapped_column(ARRAY(String), nullable=True)
+
+    inviter: Mapped[str] = mapped_column(String)
+    invite_count: Mapped[int] = mapped_column(Integer)
+    mail: Mapped[str] = mapped_column(String)
+    phone: Mapped[str] = mapped_column(String)
+    org_code: Mapped[str] = mapped_column(String,nullable=True)
+    org_name: Mapped[str] = mapped_column(String, nullable=True)
+    age: Mapped[int] = mapped_column(Integer)
+    password: Mapped[str] = mapped_column(String)
