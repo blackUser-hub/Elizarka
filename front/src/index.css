@@ -85,7 +85,7 @@ main {
 /* Calendar Section */
 .calendar-section {
   padding: 24px;
-  min-height: 600px;
+  height: auto;
   width: 100%;
   text-align: center;
   background-color: #f9fafc;
@@ -93,15 +93,19 @@ main {
   box-shadow: 0 4px 22px rgba(0, 0, 0, 0.2);
   /* Заголвок */
   h1 {
+    width: 90%;
     font-size: 40px;
     margin-bottom: 20px;
   }
 }
-/* Calendar table */
+/* Calendar Grid table */
 .calendar {
-  width: 100%;
-  height: 700px;
-  border-spacing: 0.8rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(7, minmax(90px, 1fr));
+  grid-template-rows: repeat(6, minmax(80px, 1fr));
+  grid-gap: 10px;
+  width: 90%;
 }
 /* Header Calendar */
 .calendarHeaderBox {
@@ -109,7 +113,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 50px;
   font-size: 2.5rem;
   span {
@@ -130,15 +134,26 @@ main {
   margin: 0 30px;
 }
 /* Week Days */
-thead {
+/* thead {
   height: 50px;
   font-size: 2.6rem;
   line-height: 2.6rem;
+} */
+
+.calendar-day {
+  /* min-width: 90px; */
+  aspect-ratio: 1.7/1;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 100px;
+  background-color: #5c6bc0;
+  border-radius: 20px;
 }
+
 /* Table Line  */
-tr {
+/* tr {
   height: 123px;
-}
+} */
 /* Table Line Items */
 td {
   font-size: 2rem;
