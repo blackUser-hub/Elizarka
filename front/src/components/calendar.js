@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Week from "./week"
 import CalendarYear from "./calendar_year"
+import CalendarMonthAndYear from "./calendar_month_and_year"
+import CalendarDay from "./calendar_day"
 
 const CalendarSection = () => {
     const MonthWeeks = (year, month) => {
@@ -27,8 +29,8 @@ const CalendarSection = () => {
                     month:  date.getMonth(),
                     year: date.getFullYear(),
                     weekDay:  date.getDay(),
-                    dayColor: date.getMonth() !== month && "otherMonth",
-                    todayDay: todayDate.getDate() === date.getDate() && todayDate.getMonth() === date.getMonth() && todayDate.getFullYear() === date.getFullYear() ? "today-day " : ""
+                    dayColor: date.getMonth() !== month ? " otherMonth" : "",
+                    todayDay: todayDate.getDate() === date.getDate() && todayDate.getMonth() === date.getMonth() && todayDate.getFullYear() === date.getFullYear() ? " today-day" : ""
                 }
                 week.push(day)
                 d++
@@ -41,11 +43,44 @@ const CalendarSection = () => {
     const year = NowDate.getFullYear()
     const month = NowDate.getMonth()
     const [WeeksInMonth, setWeeksInMonth] = useState(MonthWeeks(year, month))
+    const weekDays = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
 
+    // return (<div className="calendar-section">
+    //     <h1>Календарь с заметками</h1>
+    //     <table className="calendar">
+    //         <CalendarYear stateYear={year} chageYear={(d) => {
+    //         setWeeksInMonth(MonthWeeks(year+d, month))
+    //         setNowDate(new Date(year+d, month))
+    //         }}
+    //         stateMonth={month} changeMonth={(d) => {
+    //             setWeeksInMonth(MonthWeeks(year, month+d))
+    //             setNowDate(new Date(year, month+d))
+    //             }}
+    //         func={(y, m) => MonthWeeks(y, m)}
+    //         date={NowDate} year={year} />
+    //         <thead>
+    //             <tr>
+    //                 <th>пн</th>
+    //                 <th>вт</th>
+    //                 <th>ср</th>
+    //                 <th>чт</th>
+    //                 <th>пт</th>
+    //                 <th>сб</th>
+    //                 <th>вс</th>
+    //             </tr>
+    //         </thead>
+    //         <tbody>
+    //             {WeeksInMonth.map(week => (
+    //                 <tr>
+    //                     <Week days={week} />
+    //                 </tr>
+    //             ))}
+    //         </tbody>
+    //     </table>
+    // </div>)
     return (<div className="calendar-section">
         <h1>Календарь с заметками</h1>
-        <table className="calendar">
-            <CalendarYear stateYear={year} chageYear={(d) => {
+        <CalendarMonthAndYear stateYear={year} chageYear={(d) => {
             setWeeksInMonth(MonthWeeks(year+d, month))
             setNowDate(new Date(year+d, month))
             }}
@@ -55,25 +90,11 @@ const CalendarSection = () => {
                 }}
             func={(y, m) => MonthWeeks(y, m)}
             date={NowDate} year={year} />
-            <thead>
-                <tr>
-                    <th>пн</th>
-                    <th>вт</th>
-                    <th>ср</th>
-                    <th>чт</th>
-                    <th>пт</th>
-                    <th>сб</th>
-                    <th>вс</th>
-                </tr>
-            </thead>
-            <tbody>
-                {WeeksInMonth.map(week => (
-                    <tr>
-                        <Week days={week} />
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+
+        <div className="calendar">
+            {weekDays.map(day => <div className="calendar-day calendar-week-day" >{day}</div>)}
+            {WeeksInMonth.map(week => week.map(day => (<CalendarDay day={day} />)))}
+        </div>
     </div>)
   }
 
