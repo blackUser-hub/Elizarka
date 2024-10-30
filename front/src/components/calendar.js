@@ -14,6 +14,7 @@ const CalendarSection = () => {
         let res = []
         let d = 1
         let date = new Date(year, month, d)
+        const todayDate = new Date()
         while (date.getDay() !== 1) {
             date = new Date(year, month, --d)
         }
@@ -27,6 +28,7 @@ const CalendarSection = () => {
                     year: date.getFullYear(),
                     weekDay:  date.getDay(),
                     dayColor: date.getMonth() !== month && "otherMonth",
+                    todayDay: todayDate.getDate() === date.getDate() && todayDate.getMonth() === date.getMonth() && todayDate.getFullYear() === date.getFullYear() ? "today-day " : ""
                 }
                 week.push(day)
                 d++
@@ -36,8 +38,6 @@ const CalendarSection = () => {
         return res
     }
     const [NowDate, setNowDate] = useState(new Date())
-    // const [year, setYear] = useState(NowDate.getFullYear())
-    // const [month, setMonth] = useState(NowDate.getMonth())
     const year = NowDate.getFullYear()
     const month = NowDate.getMonth()
     const [WeeksInMonth, setWeeksInMonth] = useState(MonthWeeks(year, month))
