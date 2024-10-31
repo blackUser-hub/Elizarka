@@ -58,10 +58,10 @@ const CalendarSection = () => {
 
         <div className="calendar">
             <div className="week-days">
-            {weekDays.map(day => <div className="calendar-week-day" >{day}</div>)}
+            {weekDays.map(day => <div key={day} className="calendar-week-day" >{day}</div>)}
             </div>
             <div className="month-days">
-            {WeeksInMonth.map(week => week.map(day => (<CalendarDay day={day} />)))}
+            {WeeksInMonth.map(week => week.map(day => (<CalendarDay key={day.dayNumber} day={day} />)))}
             </div>
         </div>
     </div>)
