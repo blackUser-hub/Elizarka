@@ -84,90 +84,87 @@ main {
 
 /* Calendar Section */
 .calendar-section {
-  padding: 24px;
-  height: auto;
+  padding: 10px 10% 35px;
   width: 100%;
   text-align: center;
   background-color: #f9fafc;
   border-radius: 30px;
   box-shadow: 0 4px 22px rgba(0, 0, 0, 0.2);
-  /* Заголвок */
+}
+/* Header */
+.calendarHeader {
   h1 {
-    width: 90%;
     font-size: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  /* Switcher Of Year And Month */
+  .calendarSwitch {
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    font-size: 2.5rem;
+    span {
+      font-size: 2.7rem;
+    }
+    span::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  /* Calendar Header Button */
+  .calendarBtn {
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .backMonth, .nextMonth {
+    margin: 0 3vw;
   }
 }
 /* Calendar Grid table */
-.calendar {
+/* Weeks days */
+.week-days {
+  margin-block: 10px; 
+  display: grid;
+  grid-template-columns: repeat(7, minmax(80px, 1fr));
+  grid-gap: 10px;
+  /* Items */
+  .calendar-week-day {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+}
+/* Month Days */
+.month-days {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(7, minmax(90px, 1fr));
-  grid-template-rows: repeat(6, minmax(80px, 1fr));
+  grid-template-columns: repeat(7, minmax(80px, 1fr));
   grid-gap: 10px;
-  width: 90%;
-}
-/* Header Calendar */
-.calendarHeaderBox {
-  padding: 0 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  height: 50px;
-  font-size: 2.5rem;
-  span {
-    font-size: 2.7rem;
-  }
-  span::first-letter {
-    text-transform: uppercase;
-  }
-}
-/* Calendar Header Button */
-.calendarBtn {
-  user-select: none;
-  display: inline-block;
-  cursor: pointer;
-  font-weight: 600;
-}
-.backYear, .nextYear {
-  margin: 0 30px;
-}
-/* Week Days */
-/* thead {
-  height: 50px;
-  font-size: 2.6rem;
-  line-height: 2.6rem;
-} */
-
+/* Items */
 .calendar-day {
-  /* min-width: 90px; */
-  aspect-ratio: 1.7/1;
-  font-size: 1.5rem;
-  text-align: center;
-  line-height: 100px;
-  background-color: #5c6bc0;
-  border-radius: 20px;
-}
-
-/* Table Line  */
-/* tr {
-  height: 123px;
-} */
-/* Table Line Items */
-td {
-  font-size: 2rem;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
   color: black;
   background-color: #5c6bc0;
   border-radius: 20px;
-}
-/* Today Day */
-.today-day {
-  background-color: #2e3a8c;
-}
-/* Days Other Month */
-.otherMonth {
-  background-color: #888;
+  }
+  /* Today Day */
+  .today-day {
+    background-color: #2e3a8c;
+  }
+  /* Days Other Month */
+  .otherMonth {
+    background-color: #888;
+  }
+  /* Today Day In Other Month */
+  .today-day.otherMonth {
+    background-color: #444;
+  }
 }
 
 /* Notes History */
