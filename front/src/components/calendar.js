@@ -79,7 +79,7 @@ const CalendarSection = () => {
     //     </table>
     // </div>)
     return (<div className="calendar-section">
-        <h1>Календарь с заметками</h1>
+        {/* <h1>Календарь с заметками</h1> */}
         <CalendarMonthAndYear stateYear={year} chageYear={(d) => {
             setWeeksInMonth(MonthWeeks(year+d, month))
             setNowDate(new Date(year+d, month))
@@ -92,8 +92,12 @@ const CalendarSection = () => {
             date={NowDate} year={year} />
 
         <div className="calendar">
-            {weekDays.map(day => <div className="calendar-day calendar-week-day" >{day}</div>)}
+            <div className="week-days">
+            {weekDays.map(day => <div className="calendar-week-day" >{day}</div>)}
+            </div>
+            <div className="month-days">
             {WeeksInMonth.map(week => week.map(day => (<CalendarDay day={day} />)))}
+            </div>
         </div>
     </div>)
   }

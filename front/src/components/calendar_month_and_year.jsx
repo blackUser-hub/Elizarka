@@ -2,7 +2,9 @@ import React from 'react'
 
 export default function CalendarMonthAndYear({date, year, changeMonth, chageYear}) {
   return (
-    <div className='calendarHeader'><div className='calendarHeaderBox'>
+    <div className='calendarHeader'>
+      <h1>Календарь с заметками</h1>
+      <div className='calendarSwitch'>
           <div className='calendarBack'>
           <div onClick={() => chageYear(-1)} className='calendarBtn backYear'>{"<<"}</div>
           <div onClick={() => changeMonth(-1)} className='calendarBtn backMonth'>{"<"}</div>
