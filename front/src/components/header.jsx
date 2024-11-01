@@ -4,8 +4,10 @@ import Clock from './clock'
 const Header = () => {
   return (
     <header>
-        <h1>ELIZAR</h1>
-        <Clock />
+        <div className='logo-clock-box'>
+            <h1>ELIZAR</h1>
+            <Clock />
+        </div>
         <nav>
             <a href="#upload-section">Загрузить Видео</a>
             <a href="#notes-history">Конспекты</a>
