@@ -44,7 +44,6 @@ const CalendarSection = () => {
     const weekDays = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
 
     return (<div className="calendar-section">
-        {/* <h1>Календарь с заметками</h1> */}
         <CalendarMonthAndYear stateYear={year} chageYear={(d) => {
             setWeeksInMonth(MonthWeeks(year+d, month))
             setNowDate(new Date(year+d, month))

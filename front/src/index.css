@@ -29,9 +29,21 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
+header .logo-clock-box {
+  /* Logo */
+  h1 {
+    margin-right: 25px;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  /* Clock */
+  .clock {
+    display: inline-block;
+    span {
+      font-size: 1.8rem;
+    }
+  }
 }
 
 header nav {
