@@ -19,3 +19,12 @@ class UserOrm(Base):
     org_name: Mapped[str] = mapped_column(String, nullable=True)
     age: Mapped[int] = mapped_column(Integer)
     password: Mapped[str] = mapped_column(String)
+
+class FileOrm(Base):
+    id: Mapped[str] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String)
+    tag: Mapped[str] = mapped_column(String)
+    size: Mapped[str] = mapped_column(String)
+    date: Mapped[str] = mapped_column(String)
+    title: Mapped[str] = mapped_column(String)
+    owner: Mapped[str] = mapped_column(String)

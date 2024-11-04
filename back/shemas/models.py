@@ -25,3 +25,15 @@ users_table  = Table(
     Column('age', Integer),
     Column('password', String)
 )
+
+files_table = Table(
+    'Files',
+    metadata_obj,
+    Column('id', String, primary_key=True),
+    Column('name', String),
+    Column('tag', String),
+    Column('size', String),
+    Column('date', String), 
+    Column('title', String),
+    Column('owner_id', String)
+)

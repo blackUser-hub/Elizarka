@@ -1,10 +1,9 @@
 pandas
 pyannote.audio
-whisperx
+whisperx==3.1.5
 pydub
-torch
-docx
+torch>=2
+torchaudio>=2
+python-docx>=0.8.10
 pydantic
 uvicorn
-sqlalchemy
-fastapi
