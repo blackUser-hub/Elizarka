@@ -15,7 +15,7 @@ body {
   background-color: #f7f9fc;
   color: #333;
 }
-
+.desktop {
 /* Header */
 header {
   /* position: fixed;
@@ -277,6 +277,9 @@ main {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  p {
+    font-size: 1rem;
+  }
 }
 
 .about-section h2 {
@@ -291,4 +294,5 @@ footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
+}
 }
