@@ -1,11 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import Clock from './clock'
 
 const Header = () => {
+  const navigate = useNavigate();
+  const redirect = () => {  
+    navigate("/login");
+  };
+
   return (
     <header>
         <div className='logo-clock-box'>
-            <h1>ELIZAR</h1>
+            <h1 onClick={redirect}>ELIZAR</h1>
             <Clock />
         </div>
         <nav>

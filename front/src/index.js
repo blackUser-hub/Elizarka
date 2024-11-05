@@ -3,6 +3,7 @@ import ReactDOMClient from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Navigate} from "react-router-dom";
 import Registrate from './Registrate';
 import Desktop from './Desktop';
+import NotesHistory from './components/desktop/notes_history'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/desktop",
-    element: <Desktop />
+    element: <Desktop />,
+    children: [{
+      path: ":year/:month/:day",
+      element: <NotesHistory />,
+    }]
   }
 ]);
 
