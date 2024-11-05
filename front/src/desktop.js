@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
 import Header from "./components/desktop/header";
 import Main from "./components/desktop/main";
 import Footer from "./components/desktop/footer";
 import "./css/app.css"
 
-const App = () => {
+const Desktop = () => {
+  document.body.setAttribute('class', 'desktop-body')
+
   return (<div className="desktop">
     <Header />
     <Main />
@@ -13,4 +14,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Desktop;

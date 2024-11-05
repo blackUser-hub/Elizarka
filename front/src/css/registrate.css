@@ -11,7 +11,7 @@
     font-family: 'Arial', sans-serif;
   }
   
-  body {
+  body.reg-body {
     display: flex;
     justify-content: center;
     align-items: center;

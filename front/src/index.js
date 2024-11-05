@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
-import { createBrowserRouter, RouterProvider, Navigate, useLocation} from "react-router-dom";
-import App from './App';
+import { createBrowserRouter, RouterProvider, Navigate} from "react-router-dom";
 import Registrate from './Registrate';
+import Desktop from './desktop';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/desktop",
-    element: <App />
+    element: <Desktop />
   }
 ]);
 
