@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Navigate} from "react-router-dom";
 import Registrate from './Registrate';
-import Desktop from './desktop';
+import Desktop from './Desktop';
 
 const router = createBrowserRouter([
   {

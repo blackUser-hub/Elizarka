@@ -10,12 +10,12 @@ const Main = () => {
     <main>
         {/* Calendar Section */}
         <CalendarSection />
-        
+
         {/* Upload Section */}
         <Upload />
 
         {/* Notes History */}
-        {/* <NotesHistory /> */}
+        <NotesHistory />
 
         {/* Video and Notes Section */}
         <VideoNotes />
