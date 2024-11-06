@@ -21,6 +21,10 @@ const router = createBrowserRouter([
     children: [{
       path: ":year/:month/:day",
       element: <NotesHistory />,
+      // children: [{
+      //   path: ":id",
+      //   element: <Upload />,
+      // }]
     }]
   }
 ]);
