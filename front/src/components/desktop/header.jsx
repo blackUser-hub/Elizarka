@@ -5,7 +5,7 @@ import Clock from './clock'
 const Header = () => {
   const navigate = useNavigate();
   const redirect = () => {  
-    navigate("/login");
+    navigate("/desktop");
   };
 
   return (

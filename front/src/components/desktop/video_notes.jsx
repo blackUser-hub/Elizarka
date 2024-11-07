@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
 const VideoNotes = () => {
+    const {year, month, day } = useParams();
     const saveConf = async () => {
         const name = document.getElementById('conference-name').textContent;
         const txt = document.getElementById('comments').value;
         const video = document.getElementById('video-player').src;
-        const {year, month, day } = useParams();
         // const conf = {
         //     'name': name,
         //     'comments': txt,
@@ -62,7 +62,7 @@ const VideoNotes = () => {
 
     return (
         <section className="video-notes-section">
-        <h2>Просмотр видео и создание конспекта к "<div id='conference-name' className="conf-name" contenteditable="true">Конференция 3</div>"</h2>
+        <h2>Просмотр видео и создание конспекта к "<div id='conference-name' className="conf-name" contenteditable="true"></div>"</h2>
         <div className="video-container">
             <video id="video-player" controls>
                 Ваш браузер не поддерживает видео.

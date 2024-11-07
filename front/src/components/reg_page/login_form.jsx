@@ -24,7 +24,7 @@ export default function LoginForm() {
       setTimeout(() => {switchLoginBtn.style.display = "block"
         nameValue.value = ""
         passValue.value = ""}, 800)
-    }} className='switch-to-login'>Sign in</div>
+    }} className='switch-to-login'>Log in</div>
     <form id='login'>
         <span>Авторизация</span>
         <label className='label-name' htmlFor="login-name">Ваше имя</label>
