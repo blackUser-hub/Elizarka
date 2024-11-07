@@ -1,8 +1,11 @@
+import { useParams } from "react-router-dom";
+
 const VideoNotes = () => {
     const saveConf = async () => {
         const name = document.getElementById('conference-name').textContent;
         const txt = document.getElementById('comments').value;
         const video = document.getElementById('video-player').src;
+        const {year, month, day } = useParams();
         // const conf = {
         //     'name': name,
         //     'comments': txt,
@@ -21,6 +24,9 @@ const VideoNotes = () => {
                     formData.append('video', blob, 'video.mp4');
                     formData.append('name', name);
                     formData.append('comments', txt);
+                    formData.append('year', year);
+                    formData.append('month', month);
+                    formData.append('day', day);
 
                     // Отправляем данные на сервер
                     return fetch('', {

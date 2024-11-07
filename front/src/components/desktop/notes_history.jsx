@@ -4,7 +4,6 @@ import Upload from "./upload";
 import VideoNotes from './video_notes';
 
 const NotesHistory = () => {
-    // const {year, month, day } = useParams();
     const dataBase = [
         {   
             id: 0,
