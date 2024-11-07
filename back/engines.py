@@ -6,12 +6,12 @@ from config import *
 
 
 async_engine = create_async_engine(
-    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{5432}/{DB_NAME}",
+    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
     echo=True,
 )
 
 
-async_session_factory = async_sessionmaker(async_engine)
+
 
 metadata_obj = MetaData(schema='ai')
 class Base(DeclarativeBase):
@@ -20,10 +20,12 @@ class Base(DeclarativeBase):
 
     
 engine = create_engine(
-    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{5432}/{DB_NAME}",
+    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
     echo=True,
     # pool_size=5,
     # max_overflow=10,
 )
 
-sync_session = sessionmaker(engine)
+async_session_factory = async_sessionmaker(async_engine)
+sync_session = Session(engine)
+async_sessions = AsyncSession(async_engine)

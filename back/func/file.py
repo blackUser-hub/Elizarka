@@ -1,19 +1,22 @@
 from sqlalchemy.orm import Session
 from shemas.orm import FileOrm
+from engines import sync_session
 
-def get_file(db: Session, file_id: str):
-    return db.query(FileOrm).filter(FileOrm.id == file_id).first()
+def get_file( file_id: str):
+    return sync_session.query(FileOrm).filter(FileOrm.id == file_id).first()
 
-def get_files(db: Session, skip: int = 0, limit: int = 10):
-    return db.query(FileOrm).offset(skip).limit(limit).all()
-
-def create_file(db: Session, file: FileOrm):
-    db.add(file)
-    db.commit()
-    db.refresh(file)
+def create_file( file: FileOrm):
+    sync_session.add(file)
+    sync_session.commit()
+    sync_session.refresh(file)
     return file
 
-def delete_file(db: Session, file_id: str):
-    file = db.query(FileOrm).filter(FileOrm.id == file_id).first()
-    db.delete(file)
-    db.commit()
+def delete_file( file_id: str):
+    file = sync_session.query(FileOrm).filter(FileOrm.id == file_id).first()
+    sync_session.delete(file)
+    sync_session.commit()
+
+def update_path( file_id: str, path: str):
+    fil = sync_session.query(FileOrm).filter(FileOrm.id == file_id).first()
+    fil.csv_path = path
+    sync_session.commit()
