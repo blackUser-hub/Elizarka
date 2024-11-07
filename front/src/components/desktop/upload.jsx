@@ -12,6 +12,16 @@ const Upload = () => {
                 videoPlayer.src = fileURL;  // Устанавливаем URL в плеер
                 videoPlayer.load();  // Загружаем видео в плеер
                 document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
+
+                document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
+                document.getElementById("comments").value = ""
+                document.getElementsByClassName("add-timestamp")[0].textContent = "Сохранить конференцию"
+
+                const confNumber = document.getElementsByClassName("note-card").length
+                console.log(confNumber)
+                const val = document.getElementById("conference-name")
+                val.textContent = "Конференция " + (confNumber + 1)
+
               }}} />
       </section>
       )

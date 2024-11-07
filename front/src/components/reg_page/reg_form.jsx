@@ -24,7 +24,7 @@ export default function RegFrom() {
       setTimeout(() => {switchRegBtn.style.display = "block"
         nameValue.value = ""
         passValue.value = ""}, 800)
-    }} className='switch-to-reg'>Log in</div>
+    }} className='switch-to-reg'>Sign in</div>
     <form id='reg'>
         <span>Регистарция</span>
         <label className='label-name' htmlFor="reg-name">Ваше имя</label>
