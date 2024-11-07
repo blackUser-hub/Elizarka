@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from engine import Base
+from engines import Base
 from sqlalchemy import Table, Column, Integer, MetaData, String, ARRAY, func
 import enum
 import datetime
@@ -21,10 +21,12 @@ class UserOrm(Base):
     password: Mapped[str] = mapped_column(String)
 
 class FileOrm(Base):
-    id: Mapped[str] = mapped_column(primary_key=True)
+    __tablename__ = 'Files'
+    id: Mapped[str] = mapped_column(String, primary_key=True)
     name: Mapped[str] = mapped_column(String)
     tag: Mapped[str] = mapped_column(String)
     size: Mapped[str] = mapped_column(String)
     date: Mapped[str] = mapped_column(String)
     title: Mapped[str] = mapped_column(String)
     owner: Mapped[str] = mapped_column(String)
+    csv_path: Mapped[str] = mapped_column(String, nullable=True)

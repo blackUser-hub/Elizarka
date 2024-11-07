@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from sqlalchemy import Table, Column, Integer, String, MetaData, ARRAY, DATE, Text
 from sqlalchemy.orm import Mapped, mapped_column
-from engine import Base
+from engines import Base
 import datetime
 
 
@@ -35,5 +35,6 @@ files_table = Table(
     Column('size', String),
     Column('date', String), 
     Column('title', String),
-    Column('owner_id', String)
+    Column('owner_id', String),
+    Column('csv_path', String, nullable=True)
 )
