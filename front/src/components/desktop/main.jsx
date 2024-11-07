@@ -12,13 +12,13 @@ const Main = () => {
         <CalendarSection />
 
         {/* Upload Section */}
-        <Upload />
+        {/* <Upload /> */}
 
         {/* Notes History */}
         <Outlet />
 
         {/* Video and Notes Section */}
-        <VideoNotes />
+        {/* <VideoNotes /> */}
 
         {/* About Section */}
         <About />
