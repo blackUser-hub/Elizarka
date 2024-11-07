@@ -11,6 +11,11 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,26 +26,36 @@ services:
       - "${PGADMIN_PORT}:80"
 
   backend:
+    container_name: backend
+    hostname: backend
+    image: backend:1.0.0
+    restart: on-failure
     build:
       context: ./back
-      dockerfile: BackEnd.Dockerfile
-    ports:
-      - "${BACKEND_PORT}:8000"
-    depends_on:
-      - db
+      dockerfile: backend.dockerfile
     environment:
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
+      
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
-
-  frontend:
-    build:
-      context: ./front
-      dockerfile: FrontEnd.Dockerfile
+      DB_PORT: ${DB_PORT}
+      DB_HOST: db
+      BACKEND_HOST: backend
+      BACKEND_PORT: ${BACKEND_PORT}
+      # KAFKA_ORDERS_TOPIC_NAME: ${KAFKA_ORDERS_TOPIC_NAME}
+      # KAFKA_HOST: broker
+      # KAFKA_PORT: ${KAFKA_PORT}
     ports:
-      - "3000:80"
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    depends_on:
+      db:
+        condition: service_healthy
+  # frontend:
+  #   build:
+  #     context: ./front
+  #     dockerfile: FrontEnd.Dockerfile
+  #   ports:
+  #     - "3000:80"
 
 volumes:
   pgdata:
