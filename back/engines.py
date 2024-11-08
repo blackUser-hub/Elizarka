@@ -6,21 +6,21 @@ from config import *
 
 
 async_engine = create_async_engine(
-    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
+    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5432}/{DB_NAME}",
     echo=True,
 )
 
 
 
 
-metadata_obj = MetaData(schema='ai')
+metadata_obj = MetaData()
 class Base(DeclarativeBase):
     metadata = metadata_obj
 
 
     
 engine = create_engine(
-    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
+    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5432}/{DB_NAME}",
     echo=True,
     # pool_size=5,
     # max_overflow=10,
