@@ -29,6 +29,7 @@ const VideoNotes = ({props}) => {
                     method: 'POST',
                     body: formData,
                 });
+                document.getElementById('comments').value = response
                 if (response.ok) {
                     const data = await response.json();
                     alert(`Видео успешно загружено! Путь к файлу: ${data.file_path}`);
