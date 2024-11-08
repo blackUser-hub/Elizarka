@@ -13,7 +13,7 @@ async_engine = create_async_engine(
 
 
 
-metadata_obj = MetaData(schema='ai')
+metadata_obj = MetaData()
 class Base(DeclarativeBase):
     metadata = metadata_obj
 
