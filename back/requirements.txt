@@ -14,3 +14,4 @@ psycopg
 openai
 moviepy
 python-multipart
+yandex-cloud-ml-sdk
