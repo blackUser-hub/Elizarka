@@ -1,6 +1,6 @@
 pandas
 pyannote.audio
-whisperx==3.1.5
+whisper
 pydub
 torch>=2
 torchaudio>=2
@@ -13,3 +13,4 @@ asyncpg
 psycopg
 openai
 moviepy
+yandex-cloud-ml-sdk

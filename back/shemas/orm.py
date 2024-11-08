@@ -23,10 +23,13 @@ class UserOrm(Base):
 class FileOrm(Base):
     __tablename__ = 'Files'
     id: Mapped[str] = mapped_column(String, primary_key=True)
-    name: Mapped[str] = mapped_column(String)
-    tag: Mapped[str] = mapped_column(String)
-    size: Mapped[str] = mapped_column(String)
+    text: Mapped[str] = mapped_column(String, nullable=True) 
     date: Mapped[str] = mapped_column(String)
-    title: Mapped[str] = mapped_column(String)
-    owner: Mapped[str] = mapped_column(String)
+    notes: Mapped[str] = mapped_column(String)
+    owner_id: Mapped[str] = mapped_column(String)
+    video_path: Mapped[str] = mapped_column(String, nullable=True)
+    text_path: Mapped[str] = mapped_column(String, nullable=True)
     csv_path: Mapped[str] = mapped_column(String, nullable=True)
+
+
+    {'id': '123123', 'name': '12312312', 'tag': "123213123", 'size':'111', 'date':'asdasdadas', 'title': 'adsdas', 'owner': 'asdasdsa', "csv_path": 'asdasdsa'}

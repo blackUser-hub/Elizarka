@@ -8,8 +8,8 @@ engine_url = "postgresql://postgres:mypassword@db/postgres"
 
 yatoken = os.getenv("yandextoken")
 
-device  = 'cpu'
-PATH_TO_CONFIG = 'config.yaml'
+device  = 'cuda'
+PATH_TO_CONFIG = 'software/config.yaml'
 prompt = """
 Текст в таком формате: 
 (время в минутах) текст
