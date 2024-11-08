@@ -6,7 +6,7 @@ from config import *
 
 
 async_engine = create_async_engine(
-    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5432}/{DB_NAME}",
+    url=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
     echo=True,
 )
 
@@ -20,7 +20,7 @@ class Base(DeclarativeBase):
 
     
 engine = create_engine(
-    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5432}/{DB_NAME}",
+    url= f"postgresql+psycopg://{DB_USER}:{DB_PASSWORD}@{"localhost"}:{5438}/{DB_NAME}",
     echo=True,
     # pool_size=5,
     # max_overflow=10,

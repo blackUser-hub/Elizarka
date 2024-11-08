@@ -1,10 +1,15 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, File, UploadFile
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from shemas.orm import FileOrm
 from engines import sync_session
 from pydantic import BaseModel
-
+from pathlib import Path
+from ml import *
 router = APIRouter()
+
+UPLOAD_DIR = Path("files/videos")
+UPLOAD_DIR.mkdir(exist_ok=True)
 
 class FileCreate(BaseModel):
     id: str
@@ -20,17 +25,6 @@ def get_file(file_id: str):
         raise HTTPException(status_code=404, detail="File not found")
     return { 'tex': file.text}
 
-@router.post("/file/")
-def create_file(id: str, date: str, notes:str, owner_id:str):
-    db_file = FileOrm(id=id,
-    notes=notes,
-    owner_id=owner_id,
-    date=date,
-    )
-    sync_session.add(db_file)
-    sync_session.commit()
-    sync_session.refresh(db_file)
-    return {}
 
 @router.delete("/file/{file_id}")
 def delete_file(file_id: str):
@@ -49,5 +43,22 @@ def update_path(file_id: str, path: str):
     file.csv_path = path
     sync_session.commit()
 
-
     
+
+
+@router.post("/upload/")
+async def upload_video( user_id:str, date:str, notes:str, file: UploadFile = File(...)):
+    file_location = UPLOAD_DIR / file.filename
+    id = file.filename.split('.')[0]
+    with open(file_location, "wb") as f:
+        f.write(await file.read())
+    db_file = FileOrm(id=id,
+    notes=notes,
+    owner_id=user_id,
+    date=date,
+    )
+    sync_session.add(db_file)
+    sync_session.commit()
+    sync_session.refresh(db_file)
+    return  diarize_transcript_audio(id)
+

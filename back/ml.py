@@ -7,7 +7,7 @@ from random import randint
 
 import whisper
 from yandex_cloud_ml_sdk import YCloudML
-
+from ml import *
 
 
 
