@@ -12,3 +12,4 @@ openai
 moviepy
 python-multipart
 yandex-cloud-ml-sdk
+psycopg[binary,pool]
