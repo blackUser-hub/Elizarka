@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Upload = () => {
+const Upload = ({props}) => {
   return (
       <section id="upload-section" className="upload-section">
               <h2>Загрузите видео для создания конспекта</h2> 
+              <form id="uploadForm" action="http://localhost:4000/upload" method="post" enctype="multipart/form-data">
               <input type="file" id="video-upload" accept="video/*" className="upload-btn" onChange={(event) => {
                 const videoPlayer = document.getElementById('video-player');
                 const file = event.target.files[0];  // Получаем первый загруженный файл
@@ -11,18 +12,33 @@ const Upload = () => {
                 const fileURL = URL.createObjectURL(file); // Создаем URL для видео
                 videoPlayer.src = fileURL;  // Устанавливаем URL в плеер
                 videoPlayer.load();  // Загружаем видео в плеер
-                document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
+              
+                const readBlob = file => new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                
+                  reader.onload = e => {
+                    resolve(e.target.result);
+                  };
+                
+                  reader.readAsText(file);
+                });
+                const res = readBlob(file)
+                props.setVideo({id: props.context.vid,
+                  file: res,
+                })
 
+                // console.log(props.context.vid)
+                props.context.setVid(props.context.vid + 1)
+                
                 document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
                 document.getElementById("comments").value = ""
                 document.getElementsByClassName("add-timestamp")[0].textContent = "Сохранить конференцию"
 
                 const confNumber = document.getElementsByClassName("note-card").length
-                console.log(confNumber)
                 const val = document.getElementById("conference-name")
                 val.textContent = "Конференция " + (confNumber + 1)
 
-              }}} />
+              }}} /></form>
       </section>
       )
 }

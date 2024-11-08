@@ -9,6 +9,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/login" />,
+    errorElement: <Navigate to="/desktop" />        
   },
   {
     path: "/login",
@@ -27,3 +28,7 @@ const router = createBrowserRouter([
 
 const app = ReactDOMClient.createRoot(document.getElementById("root"));
 app.render(<RouterProvider router={router} />);
+
+const BASE_URL = "http://localhost:3000"
+
+export default BASE_URL
