@@ -2,8 +2,6 @@ pandas
 pyannote.audio
 whisper
 pydub
-torch>=2
-torchaudio>=2
 python-docx>=0.8.10
 pydantic
 pydantic_settings
