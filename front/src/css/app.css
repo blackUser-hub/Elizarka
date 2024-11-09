@@ -276,7 +276,6 @@ h2 {
 
 .notes-panel textarea {
   /* all: unset; */
-  width: 400px;
   height: 200px;
   padding: 0.75rem;
   border: 1px solid #ddd;
@@ -291,7 +290,6 @@ h2 {
 
 .add-timestamp {
   padding: 0.75rem;
-  width: 400px;
   background-color: #3f51b5;
   color: #fff;
   border: none;
@@ -303,6 +301,15 @@ h2 {
 
 .add-timestamp:hover {
   background-color: #303f9f;
+}
+
+.end_info {
+  display: none;
+  margin-top: 3rem;
+  flex-grow: 1;
+  min-height: 300px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* About Section */
