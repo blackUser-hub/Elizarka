@@ -4,7 +4,7 @@ const Upload = ({props}) => {
   return (
       <section id="upload-section" className="upload-section">
               <h2>Загрузите видео для создания конспекта</h2> 
-              <form id="uploadForm" action="http://localhost:4000/upload" method="post" enctype="multipart/form-data">
+              <form id="uploadForm"  method="post" enctype="multipart/form-data">
               <input type="file" id="video-upload" accept="video/*" className="upload-btn" onChange={(event) => {
                 const videoPlayer = document.getElementById('video-player');
                 const file = event.target.files[0];  // Получаем первый загруженный файл
@@ -13,18 +13,9 @@ const Upload = ({props}) => {
                 videoPlayer.src = fileURL;  // Устанавливаем URL в плеер
                 videoPlayer.load();  // Загружаем видео в плеер
               
-                const readBlob = file => new Promise((resolve, reject) => {
-                  const reader = new FileReader();
                 
-                  reader.onload = e => {
-                    resolve(e.target.result);
-                  };
-                
-                  reader.readAsText(file);
-                });
-                const res = readBlob(file)
                 props.setVideo({id: props.context.vid,
-                  file: res,
+                  file: file,
                 })
 
                 // console.log(props.context.vid)

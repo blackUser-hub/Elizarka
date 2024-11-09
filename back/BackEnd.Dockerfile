@@ -1,8 +1,7 @@
 # Backend.Dockerfile
 
 # Используем образ Python 
-FROM python:3.10.14-slim
-
+FROM python:3.11
 # Устанавливаем рабочую директорию
 WORKDIR /app
 

@@ -35,7 +35,7 @@ def diarize_transcript_audio(id):
     print('gpt1')
     sdk = YCloudML(folder_id="b1g1sfpi06rj816u9re3", auth="AQVN1tfuKIzbfMkYDyiwyf67ZB2L1JsNEtEit9rx")
 
-    prompt =  f"Представь, что ты секретарь в крупной компании, и тебе дали задачу прорезюмировать сегодняшнюю встречу. Для этого тебе дали следующий текст: {result["text"]}. При составлении используй следующие пожелания руководства: {notes}."
+    prompt =  f"Представь, что ты секретарь в крупной компании, и тебе дали задачу прорезюмировать сегодняшнюю встречу. Для этого тебе дали следующий текст: {result['text']}. При составлении используй следующие пожелания руководства: {notes}."
 
     model = sdk.models.completions('yandexgpt')
     model = model.configure(temperature=0.5)

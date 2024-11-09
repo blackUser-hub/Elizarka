@@ -25,7 +25,7 @@ const VideoNotes = ({props}) => {
             formData.append('notes', txt);
     
             try {
-                const response = await fetch('http://localhost:8000/upload/', {
+                const response = await fetch('http://localhost:8000/api/v1/files/upload', {
                     method: 'POST',
                     body: formData,
                 });
