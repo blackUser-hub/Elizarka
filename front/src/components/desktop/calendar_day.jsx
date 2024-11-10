@@ -8,6 +8,7 @@ export default function CalendarDay({day}) {
     try {
     document.getElementsByClassName("video-notes-section")[0].style.display = "none"
     document.getElementById("upload-section").getElementsByTagName("h2")[0].textContent = "Загрузите видео для создания конспекта"
+    document.getElementById("video-upload").value  = ""
     } catch (error) {
       console.log(error)
     }

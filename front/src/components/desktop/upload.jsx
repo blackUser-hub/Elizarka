@@ -4,7 +4,7 @@ const Upload = ({props}) => {
   return (
       <section id="upload-section" className="upload-section">
               <h2>Загрузите видео для создания конспекта</h2> 
-              <form id="uploadForm"  method="post" enctype="multipart/form-data">
+              <form id="uploadForm"  method="post" encType="multipart/form-data" action="http://localhost:4000/upload">
               <input type="file" id="video-upload" accept="video/*" className="upload-btn" onChange={(event) => {
                 const videoPlayer = document.getElementById('video-player');
                 const file = event.target.files[0];  // Получаем первый загруженный файл
