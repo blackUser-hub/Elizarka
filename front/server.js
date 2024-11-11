@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
+const path = require('path');
 const app = express();
 const PORT = 4000;
 
@@ -12,22 +13,82 @@ app.use(cors({
     credentials: true // Разрешить учетные данные (куки, заголовки авторизации и т.д.)
 }));
 
-// Настраиваем multer для обработки multipart/form-data
-const storage = multer.memoryStorage(); // Храним файлы в памяти
+// Настройка хранилища для multer
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'uploads/'); // Папка, куда будут сохраняться файлы
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+  });
+
+// Инициализация multer
 const upload = multer({ storage: storage });
 
-// Маршрут для обработки отправки FormData
-app.post('/upload', upload.single('file'), (req, res) => {
-    console.log(req.file); // Информация о файле
-    console.log(req.body); // Остальные поля формы
+// Создаем папку uploads, если она не существует
+const fs = require('fs');
+const dir = 'uploads';
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
 
-    res.json({ message: 'Файл успешно загружен!', file: req.file });
+// Маршрут для обработки отправки FormData
+app.post('/upload', upload.single('video'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded.');
+      }
+    res.send(`File uploaded successfully: ${req.file.filename}`);
 });
 
 // Запускаем сервер
 app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
+
+
+
+
+
+
+
+
+
+// const express = require('express');
+// const cors = require('cors');
+// const multer = require('multer');
+// const app = express();
+// const PORT = 4000;
+
+// // Миддлвар для обработки CORS
+// app.use(cors({
+//     origin: 'http://localhost:3000', // Замените на URL вашего клиентского приложения
+//     methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true // Разрешить учетные данные (куки, заголовки авторизации и т.д.)
+// }));
+
+// // Настраиваем multer для обработки multipart/form-data
+// const storage = multer.memoryStorage(); // Храним файлы в памяти
+// const upload = multer({ storage: storage });
+
+// // Маршрут для обработки отправки FormData
+// app.post('/upload', upload.single('file'), (req, res) => {
+//     console.log(req.file.buffer.BYTES_PER_ELEMENT); // Информация о файле
+//     // console.log(req.body); // Остальные поля формы
+
+//     res.json({ message: 'Файл успешно загружен!', file: req.file });
+// });
+
+// // Запускаем сервер
+// app.listen(PORT, () => {
+//     console.log(`Сервер запущен на http://localhost:${PORT}`);
+// });
+
+
+
+
+
 
 // const express = require('express');
 // const multer = require('multer');

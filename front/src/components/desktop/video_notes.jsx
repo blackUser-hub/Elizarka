@@ -17,8 +17,9 @@ const VideoNotes = ({props}) => {
         // setInterval(() => document.getElementsByClassName('end_info')[0].style.display = "block", 50000) //вот тут таймер, число в милисекундах время ожидания
         
         const xhr = new XMLHttpRequest()
+        xhr.open('POST', "http://localhost:4000/upload", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
         // xhr.open('POST', "http://localhost:4000/upload", true)
-        xhr.open('POST', "http://localhost:8000/api/v1/files/upload/", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
+        // xhr.open('POST', "http://localhost:8000/api/v1/files/upload/", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
         xhr.onload = () => {
            if (xhr.status === 200) {
                console.log("OK")
@@ -28,12 +29,11 @@ const VideoNotes = ({props}) => {
         }
 
         const myData = new FormData() // Тут ниже в каждой строке где append в кавычки написать название ячейки в бд, тк я не уверен что все правильно написал
-        myData.append('file', file, file.name);   // Видос
-        myData.append('user_id', props.owner)     // id пользователя
-        myData.append('date', date)               // Дата
-        myData.append('notes', txt)               // Заметки
-
-
+        myData.append('video', file, file.name)
+        // myData.append('file', file, file.name);   // Видос
+        // myData.append('user_id', props.owner)     // id пользователя
+        // myData.append('date', date)               // Дата
+        // myData.append('notes', txt)               // Заметки
         xhr.send(myData)
     }
 
