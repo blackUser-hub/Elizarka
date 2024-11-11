@@ -1,28 +1,35 @@
 import React from 'react'
 
-const Upload = () => {
+const Upload = ({props}) => {
   return (
       <section id="upload-section" className="upload-section">
               <h2>Загрузите видео для создания конспекта</h2> 
-              <input type="file" id="video-upload" accept="video/*" className="upload-btn" onChange={(event) => {
+              <form id="uploadForm"  method="post" encType="multipart/form-data" action="http://localhost:4000/upload">
+              <input type="file" id="video-upload" accept="video/.MOV" className="upload-btn" onChange={(event) => {
                 const videoPlayer = document.getElementById('video-player');
                 const file = event.target.files[0];  // Получаем первый загруженный файл
                 if (file) {
                 const fileURL = URL.createObjectURL(file); // Создаем URL для видео
                 videoPlayer.src = fileURL;  // Устанавливаем URL в плеер
                 videoPlayer.load();  // Загружаем видео в плеер
-                document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
+              
+                
+                props.setVideo({id: props.context.vid,
+                  file: file,
+                })
 
+                // console.log(props.context.vid)
+                props.context.setVid(props.context.vid + 1)
+                
                 document.getElementsByClassName("video-notes-section")[0].style.display = "flex"
                 document.getElementById("comments").value = ""
                 document.getElementsByClassName("add-timestamp")[0].textContent = "Сохранить конференцию"
 
                 const confNumber = document.getElementsByClassName("note-card").length
-                console.log(confNumber)
                 const val = document.getElementById("conference-name")
                 val.textContent = "Конференция " + (confNumber + 1)
 
-              }}} />
+              }}} /></form>
       </section>
       )
 }

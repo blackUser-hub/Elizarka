@@ -11,9 +11,9 @@ async_engine = create_async_engine(
 )
 
 
-async_session_factory = async_sessionmaker(async_engine)
 
-metadata_obj = MetaData(schema='ai')
+
+metadata_obj = MetaData()
 class Base(DeclarativeBase):
     metadata = metadata_obj
 
@@ -26,4 +26,6 @@ engine = create_engine(
     # max_overflow=10,
 )
 
-sync_session = sessionmaker(engine)
+async_session_factory = async_sessionmaker(async_engine)
+sync_session = Session(engine)
+async_sessions = AsyncSession(async_engine)

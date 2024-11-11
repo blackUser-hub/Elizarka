@@ -5,7 +5,8 @@ import VideoNotes from './video_notes'
 import About from './about'
 import CalendarSection from './calendar'
 
-const Main = () => {
+const Main = ({vid, setVid, owner, setOwner}) => {
+
   return (
     <main>
         {/* Calendar Section */}
@@ -15,7 +16,7 @@ const Main = () => {
         {/* <Upload /> */}
 
         {/* Notes History */}
-        <Outlet />
+        <Outlet context={{vid: vid, setVid: setVid, owner: owner, setOwner: setOwner}} />
 
         {/* Video and Notes Section */}
         {/* <VideoNotes /> */}

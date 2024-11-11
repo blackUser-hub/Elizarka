@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from sqlalchemy import Table, Column, Integer, String, MetaData, ARRAY, DATE, Text
 from sqlalchemy.orm import Mapped, mapped_column
-from engine import Base
+from engines import Base
 import datetime
 
 
@@ -12,14 +12,28 @@ metadata_obj = MetaData(schema='ai')
 
 
 users_table  = Table(
-     'Users',
+    'Users',
      metadata_obj,
     Column('id', String, primary_key=True),
-    Column('birth_date', String),
-    Column('fullname', String),
-    Column('tematics', ARRAY(String)),
-    Column('region', String),
+    Column('inviter', String),
+    Column('invite_count', Integer),
+    Column('mail', String),
+    Column('phone', String),
+    Column('org_code', String),
+    Column('org name', String),
+    Column('age', Integer),
     Column('password', String),
-    Column('liked_videos', ARRAY(String)),
-    Column('disled_videos', ARRAY(String))
+)
+
+files_table = Table(
+    'Files',
+    metadata_obj, 
+    Column('id', String, primary_key=True),
+    Column('name', String),
+    Column('tag', String),
+    Column('size', String),
+    Column('date', String), 
+    Column('title', String),
+    Column('owner_id', String),
+    Column('csv_path', String, nullable=True),
 )

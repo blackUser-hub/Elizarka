@@ -1,4 +1,4 @@
-import { Outlet, useParams } from "react-router-dom"
+import { Outlet, useParams, useOutletContext  } from "react-router-dom"
 import { useState } from "react";
 import axios from 'axios'
 import OneNote from "./one_note"
@@ -23,6 +23,12 @@ const monthNames = {
 const baseurl = ""
 const NotesHistory = () => {
     const {year, month, day } = useParams();
+    const context = useOutletContext();
+    const [video, setVideo] = useState({});
+    const allProps = {
+        context: context,
+        setVideo: setVideo
+    }
     // const [dataBase, setDataBase] = useState([])
     // axios.get(baseurl).then((res) => {
     //    setDataBase(res)
@@ -53,8 +59,8 @@ const NotesHistory = () => {
             </div>
         </section>
 
-        <Upload />
-        <VideoNotes />
+        <Upload props={allProps} />
+        <VideoNotes props={{video: video, owner: context.owner, setOwner: context.setOwner}} />
 
         <Outlet />
     </div>)

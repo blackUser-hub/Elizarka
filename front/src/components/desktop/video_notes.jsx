@@ -18,6 +18,8 @@ const VideoNotes = ({props}) => {
         
         const xhr = new XMLHttpRequest()
         xhr.open('POST', "http://localhost:4000/upload", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
+        // xhr.open('POST', "http://localhost:4000/upload", true)
+        // xhr.open('POST', "http://localhost:8000/api/v1/files/upload/", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
         xhr.onload = () => {
            if (xhr.status === 200) {
                console.log("OK")
@@ -32,8 +34,6 @@ const VideoNotes = ({props}) => {
         // myData.append('user_id', props.owner)     // id пользователя
         // myData.append('date', date)               // Дата
         // myData.append('notes', txt)               // Заметки
-
-
         xhr.send(myData)
     }
 
