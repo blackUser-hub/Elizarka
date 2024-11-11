@@ -17,7 +17,8 @@ const VideoNotes = ({props}) => {
         // setInterval(() => document.getElementsByClassName('end_info')[0].style.display = "block", 50000) //вот тут таймер, число в милисекундах время ожидания
         
         const xhr = new XMLHttpRequest()
-        xhr.open('POST', "http://localhost:4000/upload", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
+        // xhr.open('POST', "http://localhost:4000/upload", true)
+        xhr.open('POST', "http://localhost:8000/api/v1/files/upload/", true) //Тут в кавычки полный путь до бд, указанным я проверял, на него не смотреть
         xhr.onload = () => {
            if (xhr.status === 200) {
                console.log("OK")
